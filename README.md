@@ -3,7 +3,7 @@
   <img alt="A Commodore 64 that has just been switched on. READY. LOAD FPGARTKTIC,8,1" src="assets/boot-day.svg" width="100%">
 </picture>
 
-# Mateusz Okulanis
+# FPGArtktic
 
 I am a Kurp, from the [Kurpie](https://en.wikipedia.org/wiki/Kurpie) region
 of Poland, and I keep its folk traditions.
