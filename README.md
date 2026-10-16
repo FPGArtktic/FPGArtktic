@@ -155,7 +155,7 @@ kept on my website: [Interesting Links](https://fpgartktic.github.io/links/).
 * E-mail: [FPGArtktic@outlook.com](mailto:FPGArtktic@outlook.com)
 * YouTube: [kayaking, recorded](https://www.youtube.com/channel/UCZ4LH0jrgK2l0PJ-q9K6hTA/videos)
 
-I am open to job offers and collaboration.
+I am open to collaboration.
 
 Outside work: kayaking, biblical studies and theology, music and poetry,
 birds and feathers.
