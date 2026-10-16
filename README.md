@@ -6,7 +6,8 @@
 # FPGArtktic
 
 I am a Kurp, from the [Kurpie](https://en.wikipedia.org/wiki/Kurpie) region
-of Poland, and I keep its folk traditions.
+of Poland, and I keep its folk traditions. You can write to me at
+[FPGArtktic@outlook.com](mailto:FPGArtktic@outlook.com).
 
 I work on embedded systems and low-level software: FPGA programming, kernel
 development, and building systems with Yocto and Buildroot. Day to day that
