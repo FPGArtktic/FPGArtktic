@@ -12,6 +12,8 @@
 # Colours come from the theme's 00-tokens.css (nice-city = day, nice-night = night);
 # the font is the theme's bundled Press Start 2P (SIL OFL 1.1), embedded as base64.
 # Block counts in the directory listing are real: repository size / 254 bytes.
+# A repository GitHub reports as 0 KB (a new one, before GitHub computes its size)
+# keeps the count already in the listing. .github/workflows/refresh-dir.yml runs this weekly.
 import base64, json, math, re, sys, html
 S = sys.argv[1]; OUT = sys.argv[2]
 css = open(f"{S}/theme/c64/assets/css/00-tokens.css").read()
@@ -76,13 +78,18 @@ entries = [  # (repo, 1541 name)
  ("setup-DotFiles","SETUP-DOTFILES"), ("hugo-theme-c64-boot","C64-BOOT-THEME"),
  ("copilot-export-json-to-markdown","COPILOT-TO-MD"),
 ]
+try:
+    prev = {n: int(b) for b, n in re.findall(r">(\d+) +&quot;(\S+) *&quot; PRG<", open(f"{OUT}/dir-day.svg").read())}
+except FileNotFoundError:
+    prev = {}
 used = 0
-dirlines = [('LOAD"$",8', "text", None, None), ("", "text", None, None),
+dirlines =[('LOAD"$",8', "text", None, None), ("", "text", None, None),
             ("SEARCHING FOR $", "text", None, None), ("LOADING", "ok", None, None),
             ("READY.", "text", None, None), ("LIST", "text", None, None), ("", "text", None, None),
             ('0 "FPGARTKTIC      " 2A', "bright", None, None)]
 for repo, name in entries:
-    blocks = max(1, math.ceil(repos[repo]["kb"]*1024/254))
+    kb = repos[repo]["kb"]
+    blocks = math.ceil(kb*1024/254) if kb else prev.get(name, 1)
     used += blocks
     dirlines.append((f'{blocks:<6}"{name:<16}" PRG', "text", None, None))
 free = max(0, 664 - used)

@@ -1,0 +1,42 @@
+# Regenerates the 1541 disk directory in assets/dir-{day,night}.svg once a week, so the
+# block counts follow the repositories' real sizes. Commits only when a count changed.
+name: Refresh disk directory
+
+on:
+  schedule:
+    - cron: "17 4 * * 1"  # Mondays, 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Fetch the theme (palette and font)
+        # The version fpgartktic.github.io wears; bump the two together.
+        run: git clone -q --depth 1 --branch v1.0.2 https://github.com/FPGArtktic/hugo-theme-c64-boot.git "$RUNNER_TEMP/svg/theme/c64"
+
+      - name: List repository sizes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh repo list FPGArtktic --limit 100 --json name,diskUsage,stargazerCount \
+            --jq 'map({(.name): {kb: .diskUsage, stars: .stargazerCount}}) | add' > "$RUNNER_TEMP/svg/repos.json"
+
+      - name: Regenerate
+        run: python3 scripts/gen-svg.py "$RUNNER_TEMP/svg" assets
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- assets; then
+            echo "No block count changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "assets: refresh block counts" -- assets
+          git push
