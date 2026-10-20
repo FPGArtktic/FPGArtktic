@@ -108,6 +108,19 @@ Three programs that share one rule: nothing leaves the machine.
   log. Python, with its own CI, container build and
   [documentation](https://weft-mcp.readthedocs.io/en/main/).
 
+### Embedded Linux
+
+* [rtk-embedded-linux](https://github.com/FPGArtktic/rtk-embedded-linux) —
+  filters for [rtk](https://github.com/rtk-ai/rtk) that cut what a coding
+  agent reads from Yocto/BitBake and Buildroot builds, without hiding errors
+  or where a build failed. One file works on the host, in Podman, in
+  Apptainer and behind wrapper scripts. A full `core-image-minimal` build
+  goes from 946 742 bytes to 496; a full Buildroot build becomes
+  `buildroot: OK`. Comes with a measured evaluation of rtk itself, including
+  what it loses and where it does not run. Measured on a
+  [Raspberry Pi 4 reference build](https://github.com/FPGArtktic/rpi-yocto-buildroot-ref)
+  in Yocto and Buildroot.
+
 ### Terminal tools
 
 * [hyprtilt](https://github.com/FPGArtktic/hyprtilt) — a keyboard-first TUI

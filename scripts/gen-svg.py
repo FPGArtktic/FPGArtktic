@@ -70,7 +70,8 @@ boot = [
 entries = [  # (repo, 1541 name)
  ("GnuRAMage","GNURAMAGE"), ("AutoGit-o-Matic","AUTOGIT-O-MATIC"), ("gpygap","GPYGAP"),
  ("podman_base","PODMAN-WRK"), ("shuttle-stack","SHUTTLE-STACK"), ("glosator","GLOSATOR"),
- ("tachygraf","TACHYGRAF"), ("weft-mcp","WEFT-MCP"), ("hyprtilt","HYPRTILT"),
+ ("tachygraf","TACHYGRAF"), ("weft-mcp","WEFT-MCP"), ("rtk-embedded-linux","RTK-EMBED-LINUX"),
+ ("hyprtilt","HYPRTILT"),
  ("lazysubmodules","LAZYSUBMODULES"), ("ohmyzsh-mtsh-theme","MTSH-THEME"),
  ("setup-DotFiles","SETUP-DOTFILES"), ("hugo-theme-c64-boot","C64-BOOT-THEME"),
  ("copilot-export-json-to-markdown","COPILOT-TO-MD"),
