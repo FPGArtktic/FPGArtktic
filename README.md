@@ -78,10 +78,22 @@ tick that drives all of it.
   — my first AUR contribution: the Lenovo ThinkPad dock management daemon,
   packaged against the CMake version it actually needs.
   [Mirror on GitHub](https://github.com/FPGArtktic/AUR_dockd-cmake3dot5-git-).
+* [deepseek-harness-cli-git](https://aur.archlinux.org/packages/deepseek-harness-cli-git)
+  — the AUR package for the DeepSeek Harness CLI (`dsh`) and agent harness,
+  built from upstream git on Linux without the macOS-only provider. I maintain
+  the packaging, not the harness itself.
+  [Mirror on GitHub](https://github.com/FPGArtktic/deepseek-harness-cli-git).
 
 ### Local inference, local notes
 
-Three programs that share one rule: nothing leaves the machine.
+Four programs that share one rule: nothing leaves the machine.
+
+* [survivemem](https://github.com/FPGArtktic/survivemem) — local, single-user
+  persistent memory for Claude Code and Claude Desktop: one SQLite file, FTS5
+  search, no server, no API keys, no telemetry. Facts and decisions come back
+  only when they match the prompt, session state survives compaction, and a
+  debug investigation keeps what was already ruled out, with a guard that asks
+  before a failed experiment is run again. Linux only, GPL-3.0-or-later.
 
 * [SHUTTLE](https://github.com/FPGArtktic/shuttle-stack) — a local-inference
   layer for coding agents. Your files are read by llama.cpp on your own
@@ -161,6 +173,25 @@ for it),
 
 A list of books, sites and course material I have found worth the time is
 kept on my website: [Interesting Links](https://fpgartktic.github.io/links/).
+
+## Contributing
+
+Every project above lives on GitHub. Bugs, questions and pull requests go to
+the repository of the project they concern.
+
+* **Bugs and questions:** open an issue in the project's own repository.
+* **Patches:** pull requests are welcome. Keep each one to a single change and
+  say in the description what you measured or why you chose it.
+* **Licence:** a contribution goes in under the licence of the project it
+  lands in.
+
+### AUR
+
+I maintain packages in the Arch User Repository. Packaging problems go to the
+package's GitHub mirror; a bug in the software itself goes upstream.
+
+* [dockd-cmake3dot5-git](https://aur.archlinux.org/packages/dockd-cmake3dot5-git)
+* [deepseek-harness-cli-git](https://aur.archlinux.org/packages/deepseek-harness-cli-git)
 
 ## Contact
 
